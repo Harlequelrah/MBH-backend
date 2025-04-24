@@ -1,6 +1,6 @@
 from elrahapi.authorization.user_role_model import UserRoleModel
 from ..database import Base
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, Table
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, Table,String,Enum
 from elrahapi.user.model import UserModel
 from  elrahapi.authorization.user_privilege_model import UserPrivilegeModel
 from sqlalchemy.orm import relationship
@@ -8,10 +8,13 @@ from elrahapi.authorization.role_model import RoleModel
 from elrahapi.authorization.privilege_model import PrivilegeModel
 from elrahapi.authorization.role_privilege_model import RolePrivilegeModel
 from elrahapi.authorization.privilege_model import PrivilegeModel
-
+from .enums import SexEnum
 
 class User( UserModel,Base):
     __tablename__ = "users"
+    address = Column(String(50),nullable=False)
+    telephone = Column(String(15), nullable=False)
+    sex = Column(Enum(SexEnum),nullable = False , index = True)
     user_privileges = relationship("UserPrivilege", back_populates="user",lazy='joined')
     user_roles=relationship("UserRole",back_populates="user",lazy='joined')
 
