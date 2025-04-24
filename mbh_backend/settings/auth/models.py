@@ -17,6 +17,7 @@ class User( UserModel,Base):
     sex = Column(Enum(SexEnum),nullable = False , index = True)
     user_privileges = relationship("UserPrivilege", back_populates="user",lazy='joined')
     user_roles=relationship("UserRole",back_populates="user",lazy='joined')
+    patient= relationship('Patient',back_populates='user',uselist=False)
 
 class Role(RoleModel,Base):
     __tablename__ = "roles"
