@@ -1,6 +1,8 @@
 from typing import List, Optional
 from elrahapi.user import  schemas
 from pydantic import Field,BaseModel
+
+from elrahapi.utility.patterns import TELEPHONE_PATTERN
 from .enums import SexEnum
 
 
@@ -8,7 +10,7 @@ class UserBaseModel(BaseModel,schemas.UserBaseModel):
     address : str = Field(example="Lomé,Togo")
     telephone: str = Field(
         example="+22891361029",
-        pattern=r"^\+\d{8,15}$",
+        pattern=TELEPHONE_PATTERN,
         description="Telephone number must be in the format +<country_code><number>"
     )
     sex : SexEnum = Field(example=SexEnum.MALE)

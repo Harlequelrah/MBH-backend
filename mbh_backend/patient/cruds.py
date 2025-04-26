@@ -14,8 +14,7 @@ myapp_crud_models = CrudModels(
     PatchModel=PatientPatchModel, #Optionel
     PydanticModel=PatientPydanticModel, #Optionel
 )
-patient_crud = CrudForgery(
+myapp_crud = CrudForgery(
     crud_models=myapp_crud_models,
     session_manager=session_manager
-
 )

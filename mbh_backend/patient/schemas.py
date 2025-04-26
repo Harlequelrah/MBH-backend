@@ -5,11 +5,9 @@ from decimal import Decimal
 from fastapi import Form
 from datetime import datetime
 from .enums import BloodGroupEnum
-from ..settings.auth.schemas import UserBaseModel
 
-class PatientBaseModel(BaseModel):
-    blood_group :BloodGroupEnum = Field(example=BloodGroupEnum.A_POSITIVE)
-    is_blood_donor : bool = Field(example=True)
+from .meta_models import PatientBaseModel,UserBaseModel
+
 
 class PatientCreateModel(PatientBaseModel):
     user_id : int = Field(example=1)

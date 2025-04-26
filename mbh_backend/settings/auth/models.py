@@ -18,6 +18,7 @@ class User( UserModel,Base):
     user_privileges = relationship("UserPrivilege", back_populates="user",lazy='joined')
     user_roles=relationship("UserRole",back_populates="user",lazy='joined')
     patient= relationship('Patient',back_populates='user',uselist=False)
+    health_professional = relationship('HealthProfessional',back_populates='user',uselist=False)
 
 class Role(RoleModel,Base):
     __tablename__ = "roles"

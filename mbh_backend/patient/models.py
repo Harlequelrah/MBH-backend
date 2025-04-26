@@ -20,7 +20,8 @@ class Patient(Base):
     id = Column(Integer, primary_key=True,index=True)
     blood_group = Column(Enum(BloodGroupEnum), nullable=False, index=True)
     is_blood_donor = Column(Boolean,nullable=False,index=True)
-    user_id= Column(ForeignKey('users.id'))
+    user_id= Column(Integer,ForeignKey('users.id'),nullable=False)
     user= relationship ('User',back_populates='patient',uselist=False)
+    campains= relationship ('PatientCompain',back_populates='patient')
 
 metadata= Base.metadata

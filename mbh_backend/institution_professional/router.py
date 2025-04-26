@@ -5,8 +5,8 @@ from typing import List
 from elrahapi.router.router_provider import CustomRouterProvider
 
 router_provider = CustomRouterProvider(
-    prefix="/compaigns",
-    tags=["compaign"],
+    prefix="/institution_professionals",
+    tags=["institution_professional"],
     crud=myapp_crud,
     authentication=authentication,
 )

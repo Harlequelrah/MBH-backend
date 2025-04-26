@@ -5,12 +5,12 @@ from typing import List
 from elrahapi.router.router_provider import CustomRouterProvider
 
 router_provider = CustomRouterProvider(
-    prefix="/items",
-    tags=["item"],
+    prefix="/health_institution",
+    tags=["health_institutions"],
     crud=myapp_crud,
-    #authentication=authentication,
+    authentication=authentication,
 )
 
-app_myapp = router_provider.get_public_router()
-##app_myapp = router_provider.get_protected_router()
+# app_myapp = router_provider.get_public_router()
+app_myapp = router_provider.get_protected_router()
 
