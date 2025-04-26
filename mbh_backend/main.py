@@ -16,13 +16,13 @@ app = FastAPI()
 
 target_metadata.create_all(bind=engine)
 
-app.include_router(authentication_router)
-app.include_router(user_router)
+# app.include_router(authentication_router)
+# app.include_router(user_router)
 app.include_router(app_patient)
-app.include_router(app_health_professional)
-app.include_router(app_health_institution)
-app.include_router(app_institution_professional)
-app.include_router(app_campaign)
+# app.include_router(app_health_professional)
+# app.include_router(app_health_institution)
+# app.include_router(app_institution_professional)
+# app.include_router(app_campaign)
 app.add_middleware(
     ErrorHandlingMiddleware,
 )

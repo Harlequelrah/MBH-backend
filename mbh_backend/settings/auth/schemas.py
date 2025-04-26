@@ -33,7 +33,7 @@ class UserPatchModel(BaseModel,schemas.UserPatchModel):
     )
     sex : Optional[SexEnum] = Field(example=SexEnum.MALE,default=None)
 
-class UserPydanticModel(UserBaseModel,schemas.UserPydanticModel):
+class UserReadModel(UserBaseModel,schemas.UserReadModel):
     class Config :
         from_attributes=True
 

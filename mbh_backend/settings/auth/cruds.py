@@ -1,14 +1,14 @@
 
 from elrahapi.authorization.privilege_model import PrivilegeCreateModel, PrivilegePatchModel, PrivilegePydanticModel, PrivilegeUpdateModel
 from elrahapi.authorization.role_model import RoleCreateModel, RolePydanticModel,RoleUpdateModel,RolePatchModel
-from elrahapi.authorization.role_privilege_model import RolePrivilegeCreateModel, RolePrivilegePatchModel, RolePrivilegePydanticModel, RolePrivilegeUpdateModel
+from elrahapi.authorization.role_privilege_model import RolePrivilegeCreateModel, RolePrivilegePatchModel, RolePrivilegeReadModel, RolePrivilegeUpdateModel
 from elrahapi.authorization.user_privilege_model import UserPrivilegePatchModel, UserPrivilegePydanticModel
-from elrahapi.authorization.user_role_model import UserRoleCreateModel, UserRolePatchModel, UserRolePydanticModel, UserRoleUpdateModel
+from elrahapi.authorization.user_role_model import UserRoleCreateModel, UserRolePatchModel, UserRoleReadModel, UserRoleUpdateModel
 from elrahapi.crud.crud_forgery import CrudForgery
 from ..database import session_manager
 from elrahapi.crud.crud_models import CrudModels
 from .models import User, UserPrivilege,Role,Privilege,RolePrivilege,UserRole
-from .schemas import UserCreateModel,UserUpdateModel,UserPatchModel,UserPydanticModel
+from .schemas import UserCreateModel,UserUpdateModel,UserPatchModel,UserReadModel
 from elrahapi.authorization.user_privilege_model import UserPrivilegeCreateModel,UserPrivilegeUpdateModel
 from elrahapi.crud.crud_forgery import CrudForgery
 
@@ -19,7 +19,7 @@ user_crud_models = CrudModels(
     CreateModel=UserCreateModel,
     UpdateModel=UserUpdateModel,
     PatchModel=UserPatchModel,
-    PydanticModel=UserPydanticModel
+    PydanticModel=UserReadModel
 )
 
 role_crud_models=CrudModels(
@@ -49,7 +49,7 @@ role_privilege_crud_models=CrudModels(
     CreateModel=RolePrivilegeCreateModel,
     UpdateModel=RolePrivilegeUpdateModel,
     PatchModel=RolePrivilegePatchModel,
-    PydanticModel=RolePrivilegePydanticModel,
+    PydanticModel=RolePrivilegeReadModel,
 )
 
 
@@ -71,7 +71,7 @@ user_role_crud_models = CrudModels(
     CreateModel=UserRoleCreateModel,
     UpdateModel=UserRoleUpdateModel,
     PatchModel=UserRolePatchModel,
-    PydanticModel=UserRolePydanticModel
+    PydanticModel=UserRoleReadModel
 )
 
 user_privilege_crud=CrudForgery(
